@@ -4,7 +4,7 @@
 #
 # @author demmonico
 # @image ubuntu-apache-moodle
-# @version v1.0
+# @version v3.2
 
 
 FROM demmonico/ubuntu-apache-php:7.0
@@ -12,7 +12,7 @@ MAINTAINER demmonico@gmail.com
 
 
 # copy files to install container
-COPY install "${INSTALL_DIR}/"
+COPY install "${DMC_INSTALL_DIR}/"
 
 
 # init run script

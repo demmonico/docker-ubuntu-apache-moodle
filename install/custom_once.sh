@@ -54,11 +54,7 @@ if [ ! -f ${CONFIG_FILE} ]; then
         # db host
         sed -i "s/\{\{ DMC_APP_MOODLE_DB_HOST \}\}/${DMC_DB_SERVICE}/" ${CONFIG_FILE}
         # db name
-        if [ -z "${DMC_DB_SERVICE}" ]
-        then
-            DMC_DB_SERVICE=${DM_PROJECT}
-        fi
-        sed -i "s/\{\{ DMC_APP_MOODLE_DB_NAME \}\}/${DMC_DB_SERVICE}/" ${CONFIG_FILE}
+        sed -i "s/\{\{ DMC_APP_MOODLE_DB_NAME \}\}/${DMC_DB_NAME:-${DM_PROJECT}}/" ${CONFIG_FILE}
     fi
 fi
 

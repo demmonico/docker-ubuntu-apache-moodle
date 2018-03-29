@@ -41,10 +41,6 @@ app:
     # moodle data
     - ./app/data:/var/moodledata
     
-  env_file:
-    # provides values for ENV variables VIRTUAL_HOST, DM_PROJECT, DM_HOST_USER_NAME, DM_HOST_USER_ID
-    - host.env
-    
   environment:
     # name of internal DB host
     - DMC_DB_SERVICE=db

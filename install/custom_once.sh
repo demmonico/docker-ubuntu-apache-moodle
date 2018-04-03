@@ -46,15 +46,15 @@ if [ ! -f ${CONFIG_FILE} ]; then
     yes | cp -rf "${DMC_INSTALL_DIR}/config.php" ${CONFIG_FILE}
 
     # FIX Moodle sitename for CLI scripts
-    sed -i "s/\{\{ DMC_APP_MOODLE_HTTP_HOST \}\}/${VIRTUAL_HOST}/" ${CONFIG_FILE}
+    sed -i -E "s/\{\{ DMC_APP_MOODLE_HTTP_HOST \}\}/${VIRTUAL_HOST}/" ${CONFIG_FILE}
 
     # config db
     if [ ! -z "${DMC_DB_SERVICE}" ]
     then
         # db host
-        sed -i "s/\{\{ DMC_APP_MOODLE_DB_HOST \}\}/${DMC_DB_SERVICE}/" ${CONFIG_FILE}
+        sed -i -E "s/\{\{ DMC_APP_MOODLE_DB_HOST \}\}/${DMC_DB_SERVICE}/" ${CONFIG_FILE}
         # db name
-        sed -i "s/\{\{ DMC_APP_MOODLE_DB_NAME \}\}/${DMC_DB_NAME:-${DM_PROJECT}}/" ${CONFIG_FILE}
+        sed -i -E "s/\{\{ DMC_APP_MOODLE_DB_NAME \}\}/${DMC_DB_NAME:-${DM_PROJECT}}/" ${CONFIG_FILE}
     fi
 fi
 
